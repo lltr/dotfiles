@@ -1,0 +1,34 @@
+[user]
+  name = lltr
+  email = lltr@shroud.guardurl.com
+  signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBiFXLS7x2O6x8fjg2G90+q7hsFh64UqU7m4XSSf/jm5 
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = "/opt/1Password/op-ssh-sign"
+[format]
+  signOff = true
+[core]
+  editor = nano
+  excludesfile = {{ .chezmoi.homeDir }}/.gitignore_global
+[commit]
+  gpgsign = true
+[merge]
+  ff = only
+[pull]
+  rebase = true
+[status]
+  submoduleSummary = false
+[tag]
+  forceSignAnnotated = true
+[init]
+  defaultBranch = main
+[filter "lfs"]
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+[url "ssh://git@github.com/"]
+  pushInsteadOf = https://github.com/
+[push]
+  autoSetupRemote = true
