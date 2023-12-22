@@ -14,8 +14,14 @@ end
 
 -- For example, changing the color scheme:
 --config.color_scheme = 'AdventureTime'
+config.enable_wayland = true
 config.default_prog = { '/home/linuxbrew/.linuxbrew/bin/fish', '-l' }
-
+config.default_cursor_style = "SteadyBar"
+config.initial_rows = 32
+config.initial_cols = 160
+config.keys = {
+    {key="t", mods="CTRL", action=wezterm.action{SpawnTab="CurrentPaneDomain"}}
+}
 -- and finally, return the configuration to wezterm
 return config
 
